@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Faktorial</title>
+</head>
+<body>
+    <h1>Hitung faktorial dari input</h1>
+    
+    <label for="number">Masukkan sembarang angka:</label>
+    <input type="number" id="number" />
+    <button onclick="calculateFactorial()">Hitung Faktorial</button>
+    
+    <p id="result"></p>
+
+    <script>
+        function calculateFactorial() {
+            var inputElement = document.getElementById("number");
+            var resultElement = document.getElementById("result");
+            
+            var number = parseInt(inputElement.value);
+            
+            if (isNaN(number)) {
+                resultElement.innerHTML = "Masukkan angka yang valid.";
+                return;
+            }
+            
+            if (number < 0) {
+                resultElement.innerHTML = "Faktorial hanya didefinisikan untuk bilangan bulat non-negatif.";
+                return;
+            }
+            
+            var factorial = 1;
+            for (var i = 1; i <= number; i++) {
+                factorial *= i;
+            }
+            
+            resultElement.innerHTML = "Faktorial dari " + number + " adalah " + factorial;
+        }
+    </script>
+</body>
+</html>
+
+
+
