@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validasi Password</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="#" method="post" onsubmit="return validatePassword()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login">
+    </form>
+
+    <p id="error" style="color: red; display: none;">Password yang Anda masukkan salah.</p>
+
+    <script>
+        function validatePassword() {
+            var passwordInput = document.getElementById("password").value;
+            if (passwordInput !== "sss") {
+                document.getElementById("error").style.display = "block";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
