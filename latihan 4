@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilangan Prima Finder</title>
+    <style>
+        /* Tambahkan beberapa CSS jika diinginkan */
+    </style>
+</head>
+<body>
+    <h1>Bilangan Prima Finder</h1>
+    <p>Masukkan sebuah angka dan klik tombol untuk menemukan semua bilangan prima dari satu sampai angka tersebut:</p>
+    <input type="number" id="inputNumber">
+    <button onclick="findPrimes()">Cari Bilangan Prima</button>
+    <div id="result"></div>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        function findPrimes() {
+            const inputNumber = parseInt(document.getElementById('inputNumber').value);
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            if (isNaN(inputNumber) || inputNumber < 1) {
+                resultDiv.innerHTML = 'Masukkan angka yang valid (angka bulat positif)';
+                return;
+            }
+
+            resultDiv.innerHTML = 'Bilangan prima dari 1 sampai ' + inputNumber + ': ';
+            for (let i = 2; i <= inputNumber; i++) {
+                if (isPrime(i)) {
+                    resultDiv.innerHTML += i + ' ';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
